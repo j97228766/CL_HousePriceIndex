@@ -2,7 +2,7 @@
 """
 Taiwan Housing Price Index – Quarterly Data Update Script
 ==========================================================
-Run this script after each quarterly update of the CLL index to refresh
+Run this script after each quarterly update of the CL index to refresh
 the website data files.
 
 Requirements:
@@ -12,7 +12,7 @@ Usage:
     python scripts/update_data.py [--cll-quarterly PATH] [--cll-annual PATH]
 
 The script will:
-  1. Re-read the CLL quarterly/annual index CSV (or DTA) files
+  1. Re-read the CL quarterly/annual index CSV (or DTA) files
   2. Attempt to fetch updated comparison indices from public sources
   3. Rewrite all JSON/CSV data files in website/data/
   4. Print a summary of what changed
@@ -49,20 +49,20 @@ CITY_META = {
     "taipei":    {"label": "Taipei City",     "color": "#e74c3c"},
     "newtaipei": {"label": "New Taipei City", "color": "#e67e22"},
     "taoyuan":   {"label": "Taoyuan City",    "color": "#d4ac0d"},
-    "hsinchu":   {"label": "Hsinchu",         "color": "#27ae60"},
-    "taichung":  {"label": "Taichung City",   "color": "#16a085"},
-    "tainan":    {"label": "Tainan City",     "color": "#2980b9"},
-    "kaohsiung": {"label": "Kaohsiung City",  "color": "#8e44ad"},
-    "keelung":   {"label": "Keelung City",    "color": "#566573"},
-    "chiayi":    {"label": "Chiayi",          "color": "#c0392b"},
-    "yunlin":    {"label": "Yunlin",          "color": "#795548"},
+    "hsinchu":   {"label": "Hsinchu City/County", "color": "#27ae60"},
+    "taichung":  {"label": "Taichung City",       "color": "#16a085"},
+    "tainan":    {"label": "Tainan City",         "color": "#2980b9"},
+    "kaohsiung": {"label": "Kaohsiung City",      "color": "#8e44ad"},
+    "keelung":   {"label": "Keelung City",        "color": "#566573"},
+    "chiayi":    {"label": "Chiayi City/County",  "color": "#c0392b"},
+    "yunlin":    {"label": "Yunlin County",       "color": "#795548"},
     "pingtung":  {"label": "Pingtung County", "color": "#607d8b"},
     "hualien":   {"label": "Hualien County",  "color": "#00838f"},
     "taitung":   {"label": "Taitung County",  "color": "#bf360c"},
 }
 
 
-# ── Helper: read CLL index file (CSV or DTA) ──────────────────────────────────
+# ── Helper: read CL index file (CSV or DTA) ──────────────────────────────────
 def read_cll(path: Path) -> pd.DataFrame:
     """Return a DataFrame from a CSV or Stata DTA file."""
     if path.suffix.lower() == ".dta":
@@ -113,11 +113,11 @@ def build_annual_json(df: pd.DataFrame) -> dict:
 # ── Build comparison JSON ─────────────────────────────────────────────────────
 def build_comparison_json(quarterly_df: pd.DataFrame) -> dict:
     """
-    Merge the CLL aggregate series with the four comparison indices.
+    Merge the CL aggregate series with the four comparison indices.
     Comparison DTA files are read from Repeat_Sales/ if available.
     """
     INDEX_META = {
-        "cll":      {"label": "CLL Index (This Study)", "color": "#e74c3c"},
+        "cll":      {"label": "CL Index (This Study)", "color": "#e74c3c"},
         "official": {"label": "Official (MOI)",          "color": "#2980b9"},
         "sinyi":    {"label": "Sinyi HPI",               "color": "#27ae60"},
         "cathay":   {"label": "Cathay HPI",              "color": "#f39c12"},
@@ -129,7 +129,7 @@ def build_comparison_json(quarterly_df: pd.DataFrame) -> dict:
 
     comp: dict[str, dict] = {}
 
-    # CLL aggregate
+    # CL aggregate
     for _, row in quarterly_df.iterrows():
         q = row["date"].upper()
         comp.setdefault(q, {})["cll"] = (
@@ -207,14 +207,14 @@ def write_json(data, path: Path, indent=None):
 def main():
     parser = argparse.ArgumentParser(description="Update Taiwan HPI website data")
     parser.add_argument("--cll-quarterly", default=None,
-                        help="Path to quarterly CLL index CSV/DTA (default: auto-detect)")
+                        help="Path to quarterly CL index CSV/DTA (default: auto-detect)")
     parser.add_argument("--cll-annual",    default=None,
-                        help="Path to annual CLL index CSV/DTA (default: auto-detect)")
+                        help="Path to annual CL index CSV/DTA (default: auto-detect)")
     args = parser.parse_args()
 
     DATA_DIR.mkdir(exist_ok=True)
 
-    # Locate CLL files
+    # Locate CL files
     q_path = Path(args.cll_quarterly) if args.cll_quarterly else (
         RS_DIR / "fulltime_index_q_nonew.csv"
         if (RS_DIR / "fulltime_index_q_nonew.csv").exists()
@@ -227,9 +227,9 @@ def main():
     )
 
     if not q_path.exists():
-        sys.exit(f"ERROR: quarterly CLL file not found at {q_path}")
+        sys.exit(f"ERROR: quarterly CL file not found at {q_path}")
     if not a_path.exists():
-        sys.exit(f"ERROR: annual CLL file not found at {a_path}")
+        sys.exit(f"ERROR: annual CL file not found at {a_path}")
 
     print(f"\nReading quarterly CLL from: {q_path}")
     q_df = read_cll(q_path)
