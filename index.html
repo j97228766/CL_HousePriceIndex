@@ -25,8 +25,32 @@
 </nav>
 
 <div class="hero">
-  <h1 data-i18n="index.hero.title">臺灣住宅價格指數</h1>
-  <p  data-i18n="index.hero.desc">以重複交易法建構臺灣14個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。</p>
+  <div class="hero-content">
+    <h1 data-i18n="index.hero.title">臺灣住宅價格指數</h1>
+    <p  data-i18n="index.hero.desc">以重複交易法建構臺灣14個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">14</div>
+        <div class="hero-stat-lbl lang-zh">行政區</div>
+        <div class="hero-stat-lbl lang-en">Regions</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">25+</div>
+        <div class="hero-stat-lbl lang-zh">年資料</div>
+        <div class="hero-stat-lbl lang-en">Years of Data</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-lbl lang-zh">配對方法</div>
+        <div class="hero-stat-lbl lang-en">ID Methods</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1M+</div>
+        <div class="hero-stat-lbl lang-zh">交易筆數</div>
+        <div class="hero-stat-lbl lang-en">Transactions</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
@@ -298,10 +322,10 @@ function renderLatestTable() {
     }).join('');
 
   document.getElementById('latest-table').innerHTML = `
-    <table style="width:100%;border-collapse:collapse;font-size:.88rem">
+    <table class="stats-table">
       <thead>
-        <tr style="background:#f0f4f8;color:var(--primary)">
-          <th style="padding:.6rem .8rem;text-align:left">${t('index.tbl.region')}</th>
+        <tr>
+          <th style="text-align:left">${t('index.tbl.region')}</th>
           <th style="${thStyle('latest_val')}" onclick="sortBy('latest_val')">${t('index.tbl.index')}${indicator('latest_val')}</th>
           <th style="${thStyle('qoq_growth')}" onclick="sortBy('qoq_growth')">${t('index.tbl.qoq')}${indicator('qoq_growth')}</th>
           <th style="${thStyle('yoy_growth')}" onclick="sortBy('yoy_growth')">${t('index.tbl.yoy')}${indicator('yoy_growth')}</th>

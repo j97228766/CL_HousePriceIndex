@@ -45,11 +45,11 @@ const TRANSLATIONS = {
     'index.tbl.qoq':       '季增率',
     'index.tbl.yoy':       '年增率',
     'index.tbl.note':      '基期：2012Q3 = 1.00。季增率 = 季對季；年增率 = 年對年（4季）。',
-    'index.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部實價登錄 &nbsp;|&nbsp; 方法論：CLL 重複交易指數',
+    'index.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部實價登錄 &nbsp;|&nbsp; 方法論：CL 重複交易指數',
 
     /* ── comparison.html ─────────────────────────────────────────── */
     'comp.hero.title':    '臺灣住宅價格指數比較',
-    'comp.hero.desc':     'CLL 重複交易指數與官方（內政部）、信義、國泰及安富指數之比較，所有指數以 2012Q3 = 1.00 為基準。',
+    'comp.hero.desc':     'CL 重複交易指數與官方（內政部）、信義、國泰及安富指數之比較，所有指數以 2012Q3 = 1.00 為基準。',
     'comp.note':          '⚠️ <strong>資料涵蓋說明：</strong>信義、國泰、安富及官方指數的參考資料最後更新至 2023 年。2023Q3–2025Q4 的更新數據請至各來源網站下載。請參考<a href="scripts/README.md" style="color:var(--secondary)">更新說明</a>。',
     'comp.dl.label':      '📥 下載：',
     'comp.dl.csv':        '所有指數 (CSV)',
@@ -60,17 +60,17 @@ const TRANSLATIONS = {
     'comp.about.title':   '各指數說明',
     'comp.corr.title':    '指數間相關係數（重疊期間 2012Q3–2023Q1）',
     'comp.corr.note':     '皮爾森相關係數，計算所有兩指數均有有效資料的季度。',
-    'comp.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部、信義、國泰、安富/清大、CLL 重複交易',
+    'comp.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部、信義、國泰、安富/清大、CL 重複交易',
     'comp.coverage':      '涵蓋期間',
     'comp.base':          '基期',
 
     /* ── map.html ────────────────────────────────────────────────── */
     'map.hero.title':     'GIS 地圖 — 各地區住宅價格',
     'map.hero.desc':      '將滑鼠移至或點擊任一地區，查看最新住宅價格指數及增長率。',
-    'map.note':           '💡 顯示為<strong>藍色梯度</strong>的地區有 CLL 指數資料。灰色地區（苗栗、南投、彰化、宜蘭）未單獨涵蓋於此指數中。新竹市+縣及嘉義市+縣各別整合為一個地區。',
+    'map.note':           '💡 顯示為<strong>藍色梯度</strong>的地區有 CL 指數資料。灰色地區（苗栗、南投、彰化、宜蘭）未單獨涵蓋於此指數中。新竹市+縣及嘉義市+縣各別整合為一個地區。',
     'map.panel.hover':    '將滑鼠移至地區',
     'map.panel.default':  '點擊地圖上的地區以查看住宅價格統計資料。',
-    'map.panel.nodata':   '此地區在 CLL 指數中已與鄰近地區合併計算。',
+    'map.panel.nodata':   '此地區在 CL 指數中已與鄰近地區合併計算。',
     'map.legend.title':   '地圖圖例',
     'map.legend.desc':    '顏色深淺 = 年增率（顏色越深代表增長率越高）',
     'map.legend.nodata':  '無獨立資料（已整合）',
@@ -88,15 +88,15 @@ const TRANSLATIONS = {
 
     /* ── methodology.html ────────────────────────────────────────── */
     'meth.hero.title':    '研究方法',
-    'meth.hero.desc':     'CLL 重複交易住宅價格指數的建構方式，以及其相較現有臺灣價格指數的優勢。',
-    'meth.adv.title':     'CLL 指數之主要優勢',
+    'meth.hero.desc':     'CL 重複交易住宅價格指數的建構方式，以及其相較現有臺灣價格指數的優勢。',
+    'meth.adv.title':     'CL 指數之主要優勢',
     'meth.src.title':     '資料來源',
     'meth.rs.title':      '重複交易迴歸',
     'meth.methods.title': '四種房屋配對方法',
     'meth.wf.title':      '指數建構流程',
     'meth.sample.title':  '樣本篩選標準',
     'meth.cite.title':    '參考文獻',
-    'meth.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 方法論基於 CLL 重複交易框架 &nbsp;|&nbsp; 資料：內政部實價登錄',
+    'meth.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 方法論基於 CL 重複交易框架 &nbsp;|&nbsp; 資料：內政部實價登錄',
   },
 
   en: {
@@ -135,11 +135,11 @@ const TRANSLATIONS = {
     'index.tbl.qoq':       'QoQ Growth',
     'index.tbl.yoy':       'YoY Growth',
     'index.tbl.note':      'Base period: 2012Q3 = 1.00. QoQ = quarter-on-quarter; YoY = year-on-year (4 quarters).',
-    'index.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Data: Ministry of Interior (MOI) Actual Price Registration &nbsp;|&nbsp; Methodology: CLL Repeat-Sales Index',
+    'index.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Data: Ministry of Interior (MOI) Actual Price Registration &nbsp;|&nbsp; Methodology: CL Repeat-Sales Index',
 
     /* ── comparison.html ─────────────────────────────────────────── */
     'comp.hero.title':    'Comparison of Taiwan Housing Price Indices',
-    'comp.hero.desc':     'The CLL repeat-sales index plotted alongside the Official (MOI), Sinyi, Cathay, and AIFE indices. All indices normalized to 2012Q3 = 1.00.',
+    'comp.hero.desc':     'The CL repeat-sales index plotted alongside the Official (MOI), Sinyi, Cathay, and AIFE indices. All indices normalized to 2012Q3 = 1.00.',
     'comp.note':          '⚠️ <strong>Data coverage note:</strong> The Sinyi, Cathay, AIFE, and Official indices were last updated in 2023 in the reference files. Updated values for 2023Q3–2025Q4 should be fetched from the respective source websites. See the <a href="scripts/README.md" style="color:var(--secondary)">update guide</a> for instructions.',
     'comp.dl.label':      '📥 Download:',
     'comp.dl.csv':        'All Indices (CSV)',
@@ -150,17 +150,17 @@ const TRANSLATIONS = {
     'comp.about.title':   'About Each Index',
     'comp.corr.title':    'Cross-Index Correlation (overlapping period 2012Q3–2023Q1)',
     'comp.corr.note':     'Pearson correlation coefficients computed over all quarters where both indices have valid data.',
-    'comp.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Data sources: MOI, Sinyi, Cathay, AIFE/NTHU, CLL repeat-sales',
+    'comp.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Data sources: MOI, Sinyi, Cathay, AIFE/NTHU, CL repeat-sales',
     'comp.coverage':      'Coverage',
     'comp.base':          'Base',
 
     /* ── map.html ────────────────────────────────────────────────── */
     'map.hero.title':     'GIS Map — Regional Housing Prices',
     'map.hero.desc':      'Hover or click on any region to see the latest housing price index and growth rates.',
-    'map.note':           '💡 Regions shown in <strong>blue gradient</strong> have CLL index data. Gray regions (Miaoli, Nantou, Changhua, Yilan) are not covered separately in this index. Hsinchu City+County and Chiayi City+County are each consolidated into one region.',
+    'map.note':           '💡 Regions shown in <strong>blue gradient</strong> have CL index data. Gray regions (Miaoli, Nantou, Changhua, Yilan) are not covered separately in this index. Hsinchu City+County and Chiayi City+County are each consolidated into one region.',
     'map.panel.hover':    'Hover over a region',
     'map.panel.default':  'Point to a region on the map to see its housing price statistics.',
-    'map.panel.nodata':   'This region is grouped with adjacent areas in the CLL index.',
+    'map.panel.nodata':   'This region is grouped with adjacent areas in the CL index.',
     'map.legend.title':   'Map Legend',
     'map.legend.desc':    'Color intensity = YoY price growth (darker = higher growth)',
     'map.legend.nodata':  'No separate data (aggregated)',
@@ -178,15 +178,15 @@ const TRANSLATIONS = {
 
     /* ── methodology.html ────────────────────────────────────────── */
     'meth.hero.title':    'Methodology',
-    'meth.hero.desc':     'How the CLL Repeat-Sales Housing Price Index is constructed — and why it improves on existing Taiwan price indices.',
-    'meth.adv.title':     'Key Advantages of the CLL Index',
+    'meth.hero.desc':     'How the CL Repeat-Sales Housing Price Index is constructed — and why it improves on existing Taiwan price indices.',
+    'meth.adv.title':     'Key Advantages of the CL Index',
     'meth.src.title':     'Data Source',
     'meth.rs.title':      'Repeat-Sales Regression',
     'meth.methods.title': 'Four Property-Matching Methods',
     'meth.wf.title':      'Index Construction Workflow',
     'meth.sample.title':  'Sample Selection Criteria',
     'meth.cite.title':    'Reference',
-    'meth.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Methodology based on CLL repeat-sales framework &nbsp;|&nbsp; Data: Ministry of Interior APR',
+    'meth.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Methodology based on CL repeat-sales framework &nbsp;|&nbsp; Data: Ministry of Interior APR',
   }
 };
 
@@ -196,13 +196,13 @@ const CITY_LABELS_ZH = {
   taipei:     '臺北市',
   newtaipei:  '新北市',
   taoyuan:    '桃園市',
-  hsinchu:    '新竹',
+  hsinchu:    '新竹市/縣',
   taichung:   '臺中市',
   tainan:     '臺南市',
   kaohsiung:  '高雄市',
   keelung:    '基隆市',
-  chiayi:     '嘉義',
-  yunlin:     '雲林',
+  chiayi:     '嘉義市/縣',
+  yunlin:     '雲林縣',
   pingtung:   '屏東縣',
   hualien:    '花蓮縣',
   taitung:    '臺東縣',
@@ -210,11 +210,11 @@ const CITY_LABELS_ZH = {
 
 /* ── Index label translations ─────────────────────────────────────── */
 const INDEX_LABELS_ZH = {
-  cll:      'CLL 指數（本研究）',
-  official: '官方住宅價格指數（內政部）',
+  CL:      'CL 指數',
+  official: '內政部住宅價格指數',
   sinyi:    '信義房屋住宅價格指數',
   cathay:   '國泰房地產指數',
-  aife:     '清大安富指數',
+  aife:     '清華安富房價指數',
 };
 
 /* ── Helper functions ─────────────────────────────────────────────── */
