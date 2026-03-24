@@ -1,0 +1,379 @@
+/* Taiwan Housing Price Index – Main Stylesheet */
+
+:root {
+  --primary:    #1a3a5c;
+  --secondary:  #2980b9;
+  --accent:     #e74c3c;
+  --bg:         #f4f6f9;
+  --card:       #ffffff;
+  --border:     #dde3ec;
+  --text:       #2c3e50;
+  --muted:      #7f8c9b;
+  --success:    #27ae60;
+  --warning:    #e67e22;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Navigation ──────────────────────────────────────────────────── */
+nav {
+  background: var(--primary);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: 2rem;
+}
+.nav-brand {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.80);
+  text-decoration: none;
+  font-size: 0.875rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  transition: background .15s, color .15s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+  color: #fff;
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+}
+.hero h1 { font-size: clamp(1.5rem, 3vw, 2.4rem); margin-bottom: .5rem; }
+.hero p  { color: rgba(255,255,255,.80); font-size: 1rem; max-width: 650px; margin: 0 auto; }
+
+/* ── Layout ──────────────────────────────────────────────────────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .5rem 1.1rem;
+  border-radius: 6px;
+  font-size: .875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: opacity .15s, transform .1s;
+}
+.btn:hover { opacity: .88; transform: translateY(-1px); }
+.btn-primary   { background: var(--secondary); color: #fff; }
+.btn-success   { background: var(--success);   color: #fff; }
+.btn-outline   { background: transparent; border: 1px solid var(--secondary); color: var(--secondary); }
+.btn-sm        { padding: .3rem .75rem; font-size: .8rem; }
+
+/* ── Chart controls ──────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.freq-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.freq-toggle button {
+  padding: .35rem .9rem;
+  font-size: .85rem;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background .15s, color .15s;
+}
+.freq-toggle button.active {
+  background: var(--secondary);
+  color: #fff;
+}
+
+/* ── City selector ───────────────────────────────────────────────── */
+.city-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+.city-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+  font-size: .8rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all .15s;
+  user-select: none;
+}
+.city-chip .swatch {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.city-chip.active  { opacity: 1; border-color: currentColor; }
+.city-chip.inactive{ opacity: 0.4; }
+
+/* ── Chart container ─────────────────────────────────────────────── */
+.chart-wrap {
+  position: relative;
+  height: 420px;
+}
+.chart-wrap-lg { height: 520px; }
+
+/* ── Download bar ────────────────────────────────────────────────── */
+.download-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #eaf3fb;
+  border: 1px solid #bdd7ef;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+.download-bar span {
+  font-size: .875rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-right: .5rem;
+}
+
+/* ── Map ─────────────────────────────────────────────────────────── */
+#map { height: 580px; border-radius: 8px; }
+
+.map-info-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  min-height: 200px;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .75rem;
+  margin-top: .75rem;
+}
+.stat-box {
+  background: var(--bg);
+  border-radius: 6px;
+  padding: .75rem;
+  text-align: center;
+}
+.stat-box .val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.stat-box .lbl { font-size: .75rem; color: var(--muted); margin-top: .2rem; }
+.positive { color: var(--accent) !important; }
+.negative { color: var(--success) !important; }
+
+/* ── Methodology page ────────────────────────────────────────────── */
+.method-section { margin-bottom: 2.5rem; }
+.method-section h2 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: .75rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--secondary);
+}
+.method-section h3 {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 1rem 0 .4rem;
+}
+.method-section p {
+  line-height: 1.75;
+  color: #3d4f60;
+  margin-bottom: .75rem;
+}
+.method-section ul {
+  padding-left: 1.4rem;
+  line-height: 1.9;
+  color: #3d4f60;
+}
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.advantage-card {
+  background: linear-gradient(135deg, #eaf3fb 0%, #f4f9ff 100%);
+  border: 1px solid #bdd7ef;
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+}
+.advantage-card h4 {
+  color: var(--primary);
+  font-size: .95rem;
+  margin-bottom: .4rem;
+}
+.advantage-card p {
+  font-size: .85rem;
+  color: #4a6278;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Comparison legend ───────────────────────────────────────────── */
+.index-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: .75rem;
+  margin-top: 1rem;
+}
+.index-card {
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  padding: .9rem 1rem;
+}
+.index-card h4 { font-size: .9rem; color: var(--primary); }
+.index-card p  { font-size: .78rem; color: var(--muted); line-height: 1.5; margin-top: .3rem; }
+
+/* ── Tooltip ─────────────────────────────────────────────────────── */
+.custom-tooltip {
+  background: rgba(25,35,55,.92);
+  color: #fff;
+  border-radius: 6px;
+  padding: .6rem .9rem;
+  font-size: .82rem;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container { padding: 1rem; }
+  .chart-wrap { height: 320px; }
+  .chart-wrap-lg { height: 380px; }
+  #map { height: 380px; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Update banner ───────────────────────────────────────────────── */
+.update-badge {
+  display: inline-block;
+  background: var(--success);
+  color: #fff;
+  border-radius: 999px;
+  padding: .15rem .6rem;
+  font-size: .73rem;
+  font-weight: 600;
+  vertical-align: middle;
+  margin-left: .4rem;
+}
+
+/* ── Note box ────────────────────────────────────────────────────── */
+.note-box {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-left: 4px solid #f59e0b;
+  border-radius: 6px;
+  padding: .8rem 1rem;
+  font-size: .85rem;
+  color: #78350f;
+  margin-bottom: 1rem;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+footer {
+  background: var(--primary);
+  color: rgba(255,255,255,.7);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: .82rem;
+  margin-top: 3rem;
+}
+footer a { color: rgba(255,255,255,.85); }
+
+/* ── Language toggle button ──────────────────────────────────────── */
+.lang-btn {
+  margin-left: auto;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 4px;
+  padding: .25rem .65rem;
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.lang-btn:hover { background: rgba(255,255,255,.28); }
+
+/* ── Bilingual visibility ────────────────────────────────────────── */
+html[lang="zh"] .lang-en { display: none !important; }
+html[lang="en"] .lang-zh { display: none !important; }
